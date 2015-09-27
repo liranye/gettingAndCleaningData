@@ -1,6 +1,6 @@
 
-## Step 1: Merging the data
-##--------------------------
+## Step 1: Merging the test and train data
+##----------------------------------------
 testSet <- read.table('./data/UCI HAR Dataset/test/X_test.txt', header = FALSE)     #loading measurements from test file
 trainSet <- read.table('./data/UCI HAR Dataset/train/X_train.txt', header = FALSE)  #loading measurements from train file 
 fullSet <- rbind(testSet,trainSet)                                                  #binding the measurements
@@ -14,11 +14,11 @@ features <- read.table('./data/UCI HAR Dataset/features.txt', header = FALSE)   
 labels <- features[,2]                                                              
 colnames(fullSet)<-labels                                                           #assigning labels to columns names (variable names)
 
-# 2.2.1 Adding Activities with description (point #3)
+# 2.2.1 Adding Activities labels (point #3)
 testAct <- read.table('./data/UCI HAR Dataset/test/y_test.txt', header = FALSE)         #loading the activity type for each test measurement
 trainAct <- read.table('./data/UCI HAR Dataset/train/y_train.txt', header = FALSE)      #loading the activity type for each train measurement
-activities <- read.table('./data/UCI HAR Dataset/activity_labels.txt', header = FALSE)  #merging the activities of test and train
-mergedAct <- rbind(testAct, trainAct)                                                   
+activities <- read.table('./data/UCI HAR Dataset/activity_labels.txt', header = FALSE)  #loading the activity labels
+mergedAct <- rbind(testAct, trainAct)                                                   #merging the activities of test and train
 for (i in 1:length(mergedAct[,1])) {
         mergedAct[i,1]<-as.character(activities[mergedAct[i,1],"V2"])                   #"downcasting" the activity type from factor to character
 }
@@ -26,8 +26,8 @@ fullSet <- cbind(fullSet, mergedAct)                                            
 colnames(fullSet)[562] <- "activity"                                                    #labeling the activity column
 
 # 2.2.2 Adding subject (the person related to the measurement) with description (point #3)
-testSubject <- read.table('./data/UCI HAR Dataset/test//subject_test.txt', header = FALSE)         #loading the activity type for each test measurement
-trainSubject <- read.table('./data/UCI HAR Dataset/train//subject_train.txt', header = FALSE)      #loading the activity type for each train measurement
+testSubject <- read.table('./data/UCI HAR Dataset/test//subject_test.txt', header = FALSE)         #loading the relevant subject for the test measurement
+trainSubject <- read.table('./data/UCI HAR Dataset/train//subject_train.txt', header = FALSE)      #loading the relevant subject for the train measurement
 mergedSubject <- rbind(testSubject, trainSubject)                                                   
 fullSet <- cbind(fullSet, mergedSubject)                                                    #adding a column so for each measurement we'll know what was the activity type
 colnames(fullSet)[563] <- "subject"                                                    #labeling the activity column
