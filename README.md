@@ -10,6 +10,8 @@ The code assumes that under the working directory there's a ***data*** directory
 
 **Example: Working Directory\data\UCI HAR Datase\test**
 
+![path][2]
+
 ## Scripts
 
 run_analysis.R - the main and only script which does the following:
@@ -20,3 +22,7 @@ run_analysis.R - the main and only script which does the following:
  4. Add the subject ID related to each measurement (there are 30 subjects)
  5. keeping only the variables which contain "**mean**" or "**std**" for the set of measurements
  6. Melt the data and present the mean value of each variables for each subject and each activity he/she had done
+
+
+  [1]: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+  [2]: https://github.com/liranye/gettingAndCleaningData/blob/master/path.png
