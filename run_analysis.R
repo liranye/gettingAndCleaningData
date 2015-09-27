@@ -9,10 +9,10 @@ fullSet <- rbind(testSet,trainSet)                                              
 ## Step 2: Enriching the data (assign columns label, add activity name, extract mean&std measurements)
 ##--------------------------------------------------------------------------------------------------
 
-# 2.1 Assign Lables to the columns according to the features file (point #4)
+# 2.1 Assign Labels to the columns according to the features file (point #4)
 features <- read.table('./data/UCI HAR Dataset/features.txt', header = FALSE)       #loading the features list
-lables <- features[,2]                                                              
-colnames(fullSet)<-lables                                                           #assigning lables to columns names (variable names)
+labels <- features[,2]                                                              
+colnames(fullSet)<-labels                                                           #assigning labels to columns names (variable names)
 
 # 2.2.1 Adding Activities with description (point #3)
 testAct <- read.table('./data/UCI HAR Dataset/test/y_test.txt', header = FALSE)         #loading the activity type for each test measurement
