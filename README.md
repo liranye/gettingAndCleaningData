@@ -23,6 +23,13 @@ run_analysis.R - the main and only script which does the following:
  5. keeping only the variables which contain "**mean**" or "**std**" for the set of measurements
  6. Melt the data and present the mean value of each variables for each subject and each activity he/she had done
 
+ ## Output
 
+ Will show for every subject and for every activity he made and average of each variable based on the measurements for that activity
+ 
+ ![Output][3]
+
+ 
   [1]: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
   [2]: https://github.com/liranye/gettingAndCleaningData/blob/master/path.png
+  [3]: https://github.com/liranye/gettingAndCleaningData/blob/master/OutputExample.png
